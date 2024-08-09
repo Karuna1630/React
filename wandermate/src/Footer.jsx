@@ -32,7 +32,10 @@ const Footer = () => {
           <p>Privacy Polic y</p>
           <p>Terms and Condition</p>
         </div>
-        <p className="absolute left-[35%] bottom-1"> &#169; 2024 WanderMate LLC All rights reserved</p>
+        <p className="absolute left-[35%] bottom-1">
+          {" "}
+          &#169; 2024 WanderMate LLC All rights reserved
+        </p>
       </div>
     </>
   );

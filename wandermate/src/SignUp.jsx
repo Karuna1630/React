@@ -11,7 +11,8 @@ const Signup =() =>{
         confirmpassword:""
 
 
-    })
+    });
+    const [error, setError]= useState("");
 
     const handleSubmit =(e)=>{
         e.preventDefault();
@@ -31,7 +32,7 @@ const Signup =() =>{
         <input type="email" placeholder="Email" name="email" value={formData.email} onChange={handleChange} className="w-full px-3 py-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></input><br/>
         <input type="password" placeholder="Password" name="password" value={formData.password} onChange={handleChange} className="w-full px-3 py-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></input><br/>
         <input type="password" placeholder="Confirm Password" name="confirmpassword" value={formData.confirmpassword}  onChange={handleChange} className="w-full px-3 py-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></input><br/>
-        <button className="w-full bg-blue-600 outline outline-offset-2 outline-2 rounded-md text-white h-8 " type="submit">Sign Up</button>
+        <button className="w-full bg-blue-600 outline outline-offset-2 outline-2 rounded-md text-white h-8 " type="submit">Sign UP</button>
         <p className="text-black text-center p-5">I agree to all <span className="text-sky-500">Terms and Conditions</span></p>
 
     </form>

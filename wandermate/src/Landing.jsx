@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import Nav from "./Nav";
+
 
 const Landing = () => {
   return (
     <>
-     <Nav/>
+    
     <div className=" relative ">
        
         <img className=" w-full h-screen bg-cover bg-center" src="https://cdn.pixabay.com/photo/2021/03/11/02/57/mountain-6086083_640.jpg" alt="" />

@@ -16,9 +16,14 @@ import CounterUse from "./counter";
 import HotelList from "./Hotel";
 import DestinationlList from "./destinationP"
 import Home from "./Home";
-// import Carasoul from "./Carasoul"
-
 import Destination from "./Destination";
+import TravelPackages from "./Travelpackages";
+import Hotels from "./Hotels";
+import HotelIndividual from "./Hotelindividual";
+import Reviews from "./Reviews";
+import TravelPackIn from "./TravelPackagesIndi";
+import Profile from "./Profile";
+import DashboardHome from "./Dashboard/DashboardHome";
 function App() {
   return (
     <>
@@ -34,10 +39,23 @@ function App() {
     <Route path="/signup" element={<Signup/>}/>
     <Route path="/form" element={<Registration/>}/>
     <Route path="/counter" element={<CounterUse/>}/>
+ 
     <Route path="/hotel" element={<HotelList/>}/>
    <Route path="/destinations" element={<DestinationlList/>}/>
     <Route path="/destination" element={<Destination/>}/> 
     <Route path="/home" element={<Home/>}/>
+    <Route path="/travelpackages" element={<TravelPackages/>}/>
+    <Route path="/travelpackages/:id" element={<TravelPackIn/>}/>
+    <Route path="/hotels" element={<Hotels/>}/>
+    <Route path="/hotels/:id" element={<HotelIndividual/>}/>
+    <Route path="/reviews" element={<Reviews/>}/>
+    <Route path="/profile" element={<Profile/>}/>
+    <Route path="/admin/*" element={<DashboardHome/>}/>
+   
+
+
+    
+  
   </Routes>
   </BrowserRouter>
   

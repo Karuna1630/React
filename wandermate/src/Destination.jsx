@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
-import mountain from "./assets/assets/mountain2.jpg";
-
+import React, { useEffect, useState, useRef } from "react";
 import TopDestination from "./TopDestinationCard";
 import Header from "./Header";
 import TopHotels from "./TopHotels";
 import TopTravelPackages from "./TopTravelPack";
 import Footer from "./Footer";
-
+import ScrollButton from "./scroll"; // Import the ScrollButton
 
 const Destination = () => {
   const [topdestination, setTopDestination] = useState([]);
   const [destination, setDestination] = useState([]);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     const fetchTopDestination = async () => {
@@ -23,7 +22,7 @@ const Destination = () => {
         console.log(data);
         setTopDestination(data);
       } catch (error) {
-        console.log('errorrrrrrrrrrrrrrrrrrr');
+        console.log("errorrrrrrrrrrrrrrrrrrr");
       }
     };
     fetchTopDestination();
@@ -40,17 +39,41 @@ const Destination = () => {
         console.log(data);
         setDestination(data);
       } catch (error) {
-        console.log('errorrrrrrrrrrrrrrrrrrr');
+        console.log("errorrrrrrrrrrrrrrrrrrr");
       }
     };
     fetchDestination();
   }, []);
 
+  
+
   return (
     <>
       <Header />
-      <Carasoul data={destination} />
-      <div className="w-full flex flex-row gap-[23px] flex-wrap pl-[18px] ">
+      <div className="relative pb-14 mr-[93px] ml-[80px]">
+        <div className="relative overflow-x-auto" ref={containerRef}>
+          <div className="flex space-x-4">
+            {destination.map((destination) => (
+              <div
+                className="h-[40vh] relative sm:h-[40vh] md:h-[65vh] lg:h-[75vh] w-[80vw] mt-8 transition-all duration-300 ease-in-out rounded-lg flex-shrink-0"
+                key={destination.id}
+              >
+                <img
+                  className="h-full w-full object-cover rounded-lg transition-all duration-300 ease-in-out"
+                  src={destination.img}
+                  alt={destination.title}
+                />
+                <div className="absolute">{destination.title}
+                  
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <ScrollButton props = {destination}/>
+      </div>
+
+      <div className="w-full flex flex-row gap-[23px] flex-wrap pl-[18px]">
         <TopDestination props={topdestination} />
         <TopHotels />
         <TopTravelPackages />
@@ -58,6 +81,6 @@ const Destination = () => {
       </div>
     </>
   );
-}
+};
 
 export default Destination;
